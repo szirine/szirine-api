@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: szirine-api-configmap
+  namespace: sz-dev-ns
+data:
+  NODE_ENV: development
+  #COUCHDB_SERVER: couchdb-svc.sz-dev-ns 
+  #COUCHDB_PORT: "5984"
+  #COUCHDB_PROTOCOL: http

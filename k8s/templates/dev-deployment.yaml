@@ -1,0 +1,31 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata: 
+  name: szirine-api-deployment
+  namespace: sz-dev-ns
+  labels: 
+    app: szirine-api
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: szirine-api
+  template: 
+    metadata: 
+      labels:
+        app: szirine-api
+    spec: 
+      containers:
+      - name: szirine-api
+        image: TBD/sz-dev/szirine-api:latest
+        ports:
+        - name: main
+          protocol: TCP
+          containerPort: 3000
+        envFrom:
+        - configMapRef:
+            name: szirine-api-configmap
+        resources:
+          requests:
+            memory: "120M"
+            cpu: "500m"  
